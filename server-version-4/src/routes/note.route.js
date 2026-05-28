@@ -4,6 +4,7 @@ import {
 	deleteNote,
 	getAllNotes,
 	updateNote,
+	hardDeleteNote,
 } from "../controllers/note.controller.js";
 import authMiddleware from "../middlewares/auth.middleware.js";
 
@@ -33,9 +34,15 @@ router.get("/", authMiddleware, getAllNotes);
 router.patch("/:id", authMiddleware, updateNote);
 
 /**
- * path: /api/note/ (DELETE)
+ * path: /api/note/:id (DELETE)
  * des: Used to create delete single note using id
  */
 router.delete("/:id", authMiddleware, deleteNote);
+
+/**
+ * path: /api/note/hard/:id (DELETE)
+ * des: Used to hard delete single note using id
+ */
+router.delete("/hard/:id", authMiddleware, hardDeleteNote);
 
 export default router;

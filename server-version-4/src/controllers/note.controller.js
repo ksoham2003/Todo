@@ -4,6 +4,7 @@ import {
 	deleteNoteService,
 	getAllNotesService,
 	updateNoteService,
+	hardDeleteNoteService,
 } from "../services/note.service.js";
 import ApiResponse from "../utils/apiResponse.js";
 
@@ -30,4 +31,9 @@ export const updateNote = asyncHandler(async (req, res) => {
 export const deleteNote = asyncHandler(async (req, res) => {
 	await deleteNoteService(req.params);
 	return res.status(200).json(new ApiResponse(200, "note deleted"));
+});
+
+export const hardDeleteNote = asyncHandler(async (req, res) => {
+	await hardDeleteNoteService(req.params);
+	return res.status(200).json(new ApiResponse(200, "note permanently deleted"));
 });
