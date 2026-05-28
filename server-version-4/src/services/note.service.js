@@ -74,3 +74,17 @@ export const deleteNoteService = async (params) => {
 	note.deletedAt = new Date();
 	await note.save();
 };
+
+export const hardDeleteNoteService = async (params) => {
+	// getting id from params
+	const { id } = params;
+	if (!id) {
+		throw new ApiError(400, "Id is required");
+	}
+
+	// finding and completely deleting the note using Id from params
+	const note = await Note.findByIdAndDelete(id);
+	if (!note) {
+		throw new ApiError(400, "No notes found");
+	}
+};

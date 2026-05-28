@@ -43,3 +43,4 @@ This repository contains different iterations of a Todo/Notes API, showing progr
 | `GET` | `/` | Fetch all notes (soft-deleted omitted in ver 3/4) |
 | `PATCH` | `/:id` | Update a specific note by ID |
 | `DELETE`| `/:id` | Delete a specific note by ID (soft-delete in ver 3/4) |
+| `DELETE`| `/hard/:id` | Hard delete a specific note by ID (ver 3/4) |
