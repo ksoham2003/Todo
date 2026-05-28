@@ -19,3 +19,27 @@ This repository contains different iterations of a Todo/Notes API, showing progr
 ## server version 4
 - all of the above features
 - added rate global-ratelimiting(10 requests) and auth-ratelimiting(5 requests)
+
+---
+
+## API Routes & Endpoints
+
+### User Routes (`/api/user`)
+*Note: Available starting from Server Version 2.*
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/check` | Health check for User routes |
+| `POST` | `/register` | Register a new user and receive auth token |
+| `POST` | `/login` | User login to receive auth token |
+| `POST` | `/logout` | User logout and clear token |
+
+### Note Routes (`/api/note`)
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/check` | Health check for Note routes |
+| `POST` | `/` | Create a new single note |
+| `GET` | `/` | Fetch all notes (soft-deleted omitted in ver 3/4) |
+| `PATCH` | `/:id` | Update a specific note by ID |
+| `DELETE`| `/:id` | Delete a specific note by ID (soft-delete in ver 3/4) |
